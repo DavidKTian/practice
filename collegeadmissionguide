@@ -1,0 +1,64 @@
+#New program to guide high school students applying to college
+
+print("Welcome to my college guidance program.")
+name=input("To start, please write your name.\n")
+name=str(name)
+
+print("Hello",name)
+
+print("Now, tell me what your GPA is.")
+GPA=input("What is your unweighted GPA? Round to the nearest hundredth, please.\n")
+
+
+try:
+  GPA=float(GPA)
+  if (int(GPA)*100)%1!=0:
+    print("Please round to the nearest hundredth place.")
+  elif GPA>=3.5 and GPA<=4.0:
+    print("You have an excellent GPA.")
+  elif GPA>=3.0 and GPA<3.5:
+    print("You have a good GPA.")
+  elif GPA>=2.0 and GPA<3.0:
+    print("Your GPA isn't the best but you should still be able to get into a college somewhere.")
+  elif GPA>4.0:
+    print("Only your unweighted GPA, please.")
+  else:
+    print("Your GPA is pretty bad. Fear not, you can still go to community college, and there's nothing wrong with that.")
+except:
+  print("Only type in numbers, please.")
+finally:
+  print("Remember, you are more than just a number!")
+
+print("Okay! Now, tell me about your SAT score. Only your composite score, not the three individual subsections.")
+SAT=input("What is your SAT score?\n")
+try:
+  SAT=int(SAT)
+except: 
+  print("Only numbers, please.")
+
+
+
+try:
+  if SAT%10!=0:
+     print("Remember, the SAT only goes up in increments of 10.") 
+  elif SAT>=2100 and SAT<=2400:
+     print("That's an excellent score.")
+  elif SAT>=1800 and SAT<2100:
+     print("That's a good score.")
+  elif SAT>=1500 and SAT<1800:
+    print("That's a decent score.")
+  elif SAT<1500:
+    print("The score is a little bit low.")
+    
+
+except:
+  print("Only numbers, please.")
+
+def score(GPA,SAT):
+  GPA=(GPA/4.00*100)*0.75
+  SAT=(SAT/2400*100)*0.25
+  result=GPA+SAT
+  return result 
+
+score=score(GPA,SAT)
+print("This is your score as an applicant out of 100 based on your SAT and GPA:",score)
